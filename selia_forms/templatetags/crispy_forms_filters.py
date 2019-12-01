@@ -1,1 +1,0 @@
-from crispy_forms.templatetags.crispy_forms_filters import register

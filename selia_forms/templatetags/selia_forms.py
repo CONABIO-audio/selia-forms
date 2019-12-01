@@ -121,5 +121,7 @@ def selia_filter(form, label):
 
 
 @register.inclusion_tag('selia_forms/bootstrap_form.html')
-def bootstrap_form(form):
+def bootstrap_form(form, disabled=False):
+    if disabled:
+        form.field.widget.attrs['readonly'] = True
     return {'form': form}
