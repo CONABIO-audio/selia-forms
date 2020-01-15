@@ -1,13 +1,9 @@
 {% load selia_forms %}
 
 <div class="form-group w-100">
-  {{ form.label_tag }}
+  {% include 'selia_forms/form_tag.html' %}
   {% if form.errors %}
-  <div class="col px-4 m-0">
-    {% for error in form.errors %}
-    <span class="row text-danger text-center">{{ error }}</span>
-    {% endfor %}
-  </div>
+    {% include 'selia_forms/form_error.html' %}
   {% endif %}
   {% if form.field.widget.input_type == 'file' %}
   {{ form }}
@@ -16,7 +12,7 @@
     {{ form }}
   </div>
   {% else %}
-  {{ form | add_class:"form-control" }}
+    {{ form | add_class:"form-control" }}
   {% endif %}
   <small id="{{form.id_for_label}}_help" class="form-text text-muted">{{ form.help_text }}</small>
 </div>
